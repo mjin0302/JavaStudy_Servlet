@@ -27,3 +27,7 @@ hs_err_pid*
 *.classpath
 *.DS_Store
 *.prefs
+org.*
+*.jsdtscope
+*.MF
+*.xml
