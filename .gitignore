@@ -26,4 +26,3 @@ hs_err_pid*
 *.project
 *.classpath
 *.DS_Store
-*.prefs
