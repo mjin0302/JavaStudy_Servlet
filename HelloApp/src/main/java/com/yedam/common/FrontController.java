@@ -22,6 +22,7 @@ import com.yedam.emp.command.ServiceControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.LogoutControl;
+import com.yedam.member.command.memberListControl;
 
 @WebServlet("*.do") // url
 public class FrontController extends HttpServlet {
@@ -56,7 +57,8 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new LoginControl()); // 로그인 처리
 		map.put("/logout.do", new LogoutControl()); // 로그아웃 처리
 		map.put("/signOnForm.do", new SignOnFormControl()); // 회원가입화면
-		map.put("/signon.do", new SignOnControl()); // 회원가입화면
+		map.put("/signon.do", new SignOnControl()); // 회원가입
+		map.put("/memberList.do", new memberListControl()); // 회원목록
 	}
 
 	@Override // 모든 요청은 service 메소드를 실행함!!!!!!

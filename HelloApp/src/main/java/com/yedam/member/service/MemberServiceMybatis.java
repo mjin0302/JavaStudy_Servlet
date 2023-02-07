@@ -30,8 +30,7 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public List<MemberVO> memberList() {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.memberList();
 	}
 
 }
