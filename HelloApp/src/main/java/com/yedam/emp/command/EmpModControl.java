@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
 import com.yedam.emp.service.EmpService;
-import com.yedam.emp.service.EmpServiceImpl;
+import com.yedam.emp.service.EmpServiceMybatis;
 import com.yedam.emp.vo.EmpVO;
 
 public class EmpModControl implements Command {
@@ -32,7 +32,7 @@ public class EmpModControl implements Command {
 		emp.setJobId(jb);
 		emp.setHireDate(hd);
 		
-		EmpService service = new EmpServiceImpl();
+		EmpService service = new EmpServiceMybatis();
 		
 		int r = service.modEmp(emp);
 		

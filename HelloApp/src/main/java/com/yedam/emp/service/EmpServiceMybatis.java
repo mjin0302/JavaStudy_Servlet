@@ -14,20 +14,28 @@ import com.yedam.emp.vo.EmpVO;
 public class EmpServiceMybatis implements EmpService {
 
 	SqlSessionFactory sessionFactory = DataSource.getInstance();
-	SqlSession session = sessionFactory.openSession();
-	
-	
+	SqlSession session = sessionFactory.openSession(true); // 자동커밋
+
 	@Override
 	public List<EmpVO> empList() {
 		// selectList() : 리턴타입이 컬렉션임
 		// selectList("네임스페이스.id값")의 쿼리를 실행하겠다는말
-		return session.selectList("com.yedam.emp.mapper.EmpMapper.empList"); 
+		return session.selectList("com.yedam.emp.mapper.EmpMapper.empList");
 	}
 
 	@Override
 	public int addEmp(EmpVO emp) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		//session.commit();
+		int r = session.insert("com.yedam.emp.mapper.EmpMapper.addEmp", emp);
+		
+		// a -> b 송금
+		if (r > 0) {
+			session.commit(); // 커밋
+		} else {
+			session.rollback();	// 롤백 
+		}
+		return r;
 	}
 
 	@Override
@@ -37,22 +45,17 @@ public class EmpServiceMybatis implements EmpService {
 
 	@Override
 	public Map<String, String> jobList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int modEmp(EmpVO emp) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update("com.yedam.emp.mapper.EmpMapper.modEmp", emp);
 	}
 
 	@Override
 	public int remove(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.delete("com.yedam.emp.mapper.EmpMapper.remove", id);
 	}
 
-	
-	
 }

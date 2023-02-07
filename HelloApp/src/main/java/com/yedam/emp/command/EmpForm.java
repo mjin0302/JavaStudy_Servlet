@@ -1,6 +1,5 @@
 package com.yedam.emp.command;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +17,7 @@ public class EmpForm implements Command {
 		
 		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/views/emp.jsp"); // 경로를 재지정해주는 메소드를 가지고있음
 		
+		//EmpService service = new EmpServiceMybatis();
 		EmpService service = new EmpServiceImpl();
 		Map<String, String> jobList = service.jobList();
 		
