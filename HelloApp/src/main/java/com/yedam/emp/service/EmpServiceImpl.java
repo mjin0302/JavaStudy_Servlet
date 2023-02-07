@@ -22,7 +22,6 @@ public class EmpServiceImpl implements EmpService{ // DB에 대한 기능을 구
 		return dao.insertEmp(emp);
 	}
 
-
 	@Override
 	public EmpVO getEmp(int empId) {
 		return dao.searchEmp(empId);
@@ -43,7 +42,5 @@ public class EmpServiceImpl implements EmpService{ // DB에 대한 기능을 구
 	public int remove(int id) {
 		return dao.removeEmp(id);
 	}
-
-
 	
 }

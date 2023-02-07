@@ -11,8 +11,8 @@
 	</select>
 	
 	<insert id="addMember" parameterType="com.yedam.member.vo.MemberVO">
-		insert into members(member_id, member_pw, member_name, member_phone, member_addr, responsibility, image)
-		values (#{memberId}, #{memberPw}, #{memberName}, #{memberPhone}, #{memberAddr}, 'user', #{image})
+		insert into members(member_id, member_pw, member_name, member_phone, responsibility, image)
+		values (#{memberId}, #{memberPw}, #{memberName}, #{memberPhone}, 'user', #{image})
 	</insert>
 	
 	<select id="memberList" resultType="MemberVO">

@@ -13,8 +13,8 @@ public class MainControl implements Command {
 		try {
 			req.getRequestDispatcher("WEB-INF/views/main.jsp").forward(req, resp);
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			e.printStackTrace(); //자바가 가지고있는 오류 내용
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -39,7 +39,7 @@ public class EmpControl implements Command { // 서버단
 				e.printStackTrace();
 			}
 			
-		}else if(method.equals("POST")) { // POST방식 : 입력처리
+		} else if(method.equals("POST")) { // POST방식 : 입력처리
 			// 입력하기 위한 처리
 			// form에서 작성한 input태그의 name속성을 넣어줌
 			String eid = req.getParameter("eid");

@@ -15,7 +15,8 @@ public class DAO {
 	public PreparedStatement psmt = null; // Statement는 sql 구문처리하기 어려움 따라서 PreparedStatement 보완 => ? 사용가능
 	public ResultSet rs = null; // 쿼리 실행결과를 받아오는 객체 (★★ Set 컬렉션임)
 
-	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // @ip:포트:id(오라클db)
+	//String url = "jdbc:oracle:thin:@localhost:1521:xe"; // @ip:포트:id(오라클db)
+	String url = "jdbc:oracle:thin:@3.34.253.0:1521:xe"; // @ip:포트:id(오라클db)
 	String user = "hr";
 	String pass = "hr";
 
