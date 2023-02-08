@@ -18,22 +18,22 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 목록 조회
 	@Override
-	public List<NoticeVO> noticeList() {
+	public List<NoticeVO> noticeList() { // List<NoticeVO> => DB에서 여러건을 받아와서 넘겨줘야해서 리타입이 List<NoticeVO>임
 		
-		return mapper.selectList();
+		return mapper.selectList(); 
 	}
 
 	// 단건 조회
 	@Override
-	public NoticeVO getNotice(int nid) {
+	public NoticeVO getNotice(int nid) { // 한건만 조회하면 되는거라서 리턴타입이 NoticeVO
 		mapper.increaseCnt(nid); //조회할때마다 카운트가 증가됨
-		return mapper.searchOne(nid);
+		return mapper.searchOne(nid); 
 	}
 
 	// 등록
 	@Override
-	public int addNotice(NoticeVO notice) {
-		// TODO Auto-generated method stub
+	public int addNotice(NoticeVO notice) { // 등록하는 정보들 값을 읽어서 DB로 전송해주면 되는거라서 몇건이 등록만 넘겨주면되서 리턴타입 int
+		
 		return mapper.insertNotice(notice);
 	}
 

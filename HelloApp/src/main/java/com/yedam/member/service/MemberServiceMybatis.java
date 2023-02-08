@@ -24,7 +24,7 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public int addMember(MemberVO member) {
-		// TODO Auto-generated method stub
+		
 		return mapper.addMember(member);
 	}
 
@@ -35,7 +35,7 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public MemberVO getMember(String id) {
-		// TODO Auto-generated method stub
+		
 		return mapper.getMember(id);
 	}
 	

@@ -7,13 +7,13 @@
 		SELECT * from tbl_notice order by notice_id desc
 	</select>
 
-	<select id="searchOne" resultType="NoticeVO">
+	<select id="searchOne" resultType="NoticeVO"> <!-- id:메소드이름 resultType:리턴타입 -->
 		SELECT * from tbl_notice where notice_id=#{nid}
 	</select>
 
 	<!-- insert 구문은 따로 resultType을 지정하지않아도 됨 -->
 	<!-- parameterType="NoticeVO" : 쿼리를 실행시키기위한 매개값임 -->
-	<insert id="insertNotice" parameterType="NoticeVO">
+	<insert id="insertNotice" parameterType="NoticeVO"> <!-- id:메소드이름 parameterType:매개변수 -->
 		INSERT into tbl_notice (notice_id, notice_writer, notice_title, notice_subject, attach_file)
 		VALUES(notice_seq.nextval, #{noticeWriter}, #{noticeTitle}, #{noticeSubject}, #{attachFile})
 	</insert>
@@ -33,9 +33,4 @@
 	<update id="increaseCnt" parameterType="int">
 		UPDATE tbl_notice SET hit_count = hit_count + 1 WHERE notice_id = #{ nid }
 	</update>
-
-
-
-
-
 </mapper>

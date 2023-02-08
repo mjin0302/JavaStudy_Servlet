@@ -26,8 +26,7 @@ public class NoticeAdd implements Command {
 
 		try {
 			// 파일 업로드 서블릿
-			MultipartRequest multi = //
-					new MultipartRequest(req, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
+			MultipartRequest multi = new MultipartRequest(req, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
 
 			String title = multi.getParameter("title");
 			String subject = multi.getParameter("subject");
