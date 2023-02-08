@@ -1,4 +1,4 @@
-package com.yedam.common;
+package com.yedam.member.command;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.yedam.common.Command;
 import com.yedam.member.service.MemberService;
 import com.yedam.member.service.MemberServiceMybatis;
 import com.yedam.member.vo.MemberVO;

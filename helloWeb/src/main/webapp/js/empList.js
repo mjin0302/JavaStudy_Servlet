@@ -237,7 +237,7 @@ function allCheckChange() {
 	});
 }
 
-// fetch API => 비동기방식처리. => 동기식 처리. (async, await)
+// fetch API => 비동기방식처리. => 동기식 처리. (async, await);
 async function deleteCheckedFnc() {
 	let ids = [];
 	let chks = document.querySelectorAll('#list input[type="checkbox"]:checked');

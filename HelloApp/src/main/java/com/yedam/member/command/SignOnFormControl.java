@@ -7,23 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
-import com.yedam.member.service.MemberService;
-import com.yedam.member.service.MemberServiceMybatis;
 
-public class memberListControl implements Command {
+public class SignOnFormControl implements Command {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) {
-		
-		MemberService service = new MemberServiceMybatis();
-		req.setAttribute("memberList", service.memberList());
-		
+		// sigon.jsp
 		try {
-			req.getRequestDispatcher("WEB-INF/member/memberList.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/member/signon.jsp").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 }

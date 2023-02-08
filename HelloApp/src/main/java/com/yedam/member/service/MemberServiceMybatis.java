@@ -33,4 +33,11 @@ public class MemberServiceMybatis implements MemberService {
 		return mapper.memberList();
 	}
 
+	@Override
+	public MemberVO getMember(String id) {
+		// TODO Auto-generated method stub
+		return mapper.getMember(id);
+	}
+	
+
 }
