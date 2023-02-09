@@ -38,6 +38,4 @@ public class MemberServiceMybatis implements MemberService {
 		
 		return mapper.getMember(id);
 	}
-	
-
 }

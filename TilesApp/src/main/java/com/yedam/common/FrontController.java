@@ -11,8 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.notice.command.*;
-import com.yedam.member.command.*;
+import com.yedam.member.command.Login;
+import com.yedam.member.command.LoginForm;
+import com.yedam.notice.command.AddReply;
+import com.yedam.notice.command.NoticeAdd;
+import com.yedam.notice.command.NoticeDetail;
+import com.yedam.notice.command.NoticeForm;
+import com.yedam.notice.command.NoticeList;
+import com.yedam.notice.command.RemoveReply;
+import com.yedam.notice.command.ReplyList;
 
 public class FrontController extends HttpServlet {
 
@@ -49,13 +56,16 @@ public class FrontController extends HttpServlet {
 
 		// 회원관련
 		map.put("/loginForm.do", new LoginForm()); // 로그인 화면
-		map.put("/login.do", new Login()); //로그인 처리
+		map.put("/login.do", new Login()); // 로그인 처리
+		//map.put("/logout.do", new logout()); // 로그아웃
+		//map.put("/modifyMember.do", new ModifyMember()); //
 	}
 
-	@Override
 	// req -> 클라이언트가 보내는 요청정보들이 담겨있음 ex) form이면 form안에 input의 value(입력)값
 	// resp -> 요청한 정보들의 결과 값이 담겨있음
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	@Override
+	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(charset);
 
 		// /main.do를 알기위해 실행하는 코드 (규칙느낌) 그냥 외우기
@@ -77,6 +87,5 @@ public class FrontController extends HttpServlet {
 			resp.setContentType("text/json;charset=utf-8");
 			resp.getWriter().print(viewPage.substring(0, viewPage.length() - 5));
 		}
-
 	}
 }

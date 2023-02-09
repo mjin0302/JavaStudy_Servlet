@@ -30,5 +30,6 @@
 	</environments>
 	<mappers>
 		<mapper class="com.yedam.notice.mapper.NoticeMapper" />
+		<mapper class="com.yedam.member.mapper.MemberMapper" />
 	</mappers>
 </configuration>

@@ -8,7 +8,7 @@ import com.yedam.common.DataSource;
 import com.yedam.member.mapper.MemberMapper;
 import com.yedam.member.vo.MemberVO;
 
-//인터페이스를 구현하는 클래스
+//인터페이스(MemberService)를 구현하는 클래스 => 즉, 좀 더 조합해서 사용할 수 있다
 public class MemberServiceMybatis implements MemberService {
 	// 자동 커밋
 	SqlSession session = DataSource.getInstance().openSession(true);
@@ -18,13 +18,13 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public MemberVO login(MemberVO member) {
-		
+
 		return mapper.login(member); // session.selectOne("네임스페이스");
 	}
 
 	@Override
 	public int addMember(MemberVO member) {
-		
+
 		return mapper.addMember(member);
 	}
 
@@ -35,9 +35,13 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public MemberVO getMember(String id) {
-		
+
 		return mapper.getMember(id);
 	}
-	
+
+	@Override
+	public int modifyMember(MemberVO member) {
+		return 0;
+	}
 
 }

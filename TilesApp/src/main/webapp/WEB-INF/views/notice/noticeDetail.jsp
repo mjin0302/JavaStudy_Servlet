@@ -63,6 +63,7 @@ prefix="fmt" %>
 <script>
   const url = 'replyList.do?nid=' + ${vo.noticeId };
   const nid = ${vo.noticeId };
+  const logid = ${logid};
   fetch(url)
   .then(resolve => resolve.json())
   .then(result => {
@@ -115,19 +116,23 @@ prefix="fmt" %>
   })
 
   function makeTr(item){
-  		// tr: 댓글번호, 제목, 작성자, 작성일자
-  		// tr: 댓글내용
-  		// let tr1 = document.createElement('tr');
-  		// let td = document.createElement('td');
-  		let tr1 = $('<tr />').attr('data-id', item.replyId).append(		// jQuery
-  			$("<td align='center' />").text(item.replyId),
-  			$("<td align='center' />").text(item.replyTitle),
-  			$("<td align='center' />").text(item.replyWriter),
-  			$("<td width='180px' />").text(item.replyDate)
-  		)
-  		let tr2 = $('<tr />').attr('data-id', item.replyId).append(
-  			$("<td colspan='3' align='center' />").text(item.replySubject),
-  			$("<td align='right' />").html("<button class='btn btn-warning' onclick='deleteReply("+item.replyId+")'>삭제</button>")
-  		)
-  		$('#list').prepend(tr1, tr2);}
+          // tr: 댓글번호, 제목, 작성자, 작성일자
+          // tr: 댓글내용
+          // let tr1 = document.createElement('tr');
+          // let td = document.createElement('td');
+          let tr1 = $('<tr />').attr('data-id', item.replyId).append(        // jQuery
+              $("<td align='center' />").text(item.replyId),
+              $("<td align='center' />").text(item.replyTitle),
+              $("<td align='center' />").text(item.replyWriter),
+              $("<td width='180px' />").text(item.replyDate)
+          )
+          let tr2 = $('<tr />').attr('data-id', item.replyId).append(
+              $("<td colspan='3' align='center' />").text(item.replySubject),
+              $("<td align='right' />").html(function(){
+                  if (item.replyWriter == logid) {
+                      return "<button class='btn btn-warning' onclick='deleteReply("+item.replyId+")'>삭제</button>"
+                  }
+              })
+          )
+          $('#list').prepend(tr1, tr2);}
 </script>

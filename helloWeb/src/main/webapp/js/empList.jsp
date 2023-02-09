@@ -246,7 +246,7 @@ async function deleteCheckedFnc() {
 		let id = chks[i].parentElement.parentElement.firstChild.innerText;
 		let resp = await fetch("../empListJson?del_id=" + id, {
 			method: "DELETE",
-		})
+		});
 		let json = await resp.json();
 		console.log(json);
 		ids.push(json);
