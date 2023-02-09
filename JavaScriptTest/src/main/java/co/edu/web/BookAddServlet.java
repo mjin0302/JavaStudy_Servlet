@@ -26,11 +26,11 @@ public class BookAddServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json;charset=utf-8");
-//		BookDAO dao = new BookDAO();
-//		List<BookVO> list = dao.bookList();
-//		
-//		Gson gson = new GsonBuilder().create();
-//		response.getWriter().print(gson.toJson(list));
+		BookDAO dao = new BookDAO();
+		List<BookVO> list = dao.bookList();
+		
+		Gson gson = new GsonBuilder().create();
+		response.getWriter().print(gson.toJson(list));
 	}
 
 
