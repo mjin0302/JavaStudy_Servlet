@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.member.mapper.MemberMapper">
+	<!-- id : 쿼리구문을 id값으로 구분함, 중복 불가능
+	resultType : 반환되는 타입 -->
+	<select id="login" resultType="com.yedam.member.vo.MemberVO">
+		select * from members where member_id = #{memberId} and member_pw=#{memberPw}
+	</select>
+	
+	<insert id="addMember" parameterType="com.yedam.member.vo.MemberVO">
+		insert into members(member_id, member_pw, member_name, member_phone, responsibility, image)
+		values (#{memberId}, #{memberPw}, #{memberName}, #{memberPhone}, 'user', #{image})
+	</insert>
+	
+	<select id="memberList" resultType="MemberVO">
+		select * from members order by member_id
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="MemberVO">
+		select * from members where member_id=#{id}
+	</select>
+	<!-- 전체 조회 -->
+
+	<!-- 한건 조회 -->
+
+	<!-- 등록 -->
+
+	<!-- 등록 -->
+	
+	<!-- 수정 -->
+	
+	<!-- 삭제 -->
+</mapper>

@@ -12,8 +12,9 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias alias="NoticeVO"
-			type="com.yedam.notice.vo.NoticeVO" />
+		<typeAlias alias="NoticeVO" type="com.yedam.notice.vo.NoticeVO" />
+		<typeAlias alias="ReplyVO" type="com.yedam.notice.vo.ReplyVO" />
+		<typeAlias alias="MemberVO" type="com.yedam.member.vo.MemberVO" />
 	</typeAliases>
 
 	<environments default="development">

@@ -3,6 +3,7 @@ package com.yedam.notice.service;
 import java.util.List;
 
 import com.yedam.notice.vo.NoticeVO;
+import com.yedam.notice.vo.ReplyVO;
 
 public interface NoticeService {
 	public List<NoticeVO> noticeList();
@@ -10,4 +11,14 @@ public interface NoticeService {
 	public int addNotice(NoticeVO notice); // 글 등록
 	public int modNotice(NoticeVO notice); // 글 수정
 	public int remNotice(int nid); // 글 삭제
+	// 댓글 등록
+	int addReply(ReplyVO reply);
+	// 댓글 목록
+	public List<ReplyVO> replyList(int nid);
+	// 댓글 삭제
+	// 댓글 번호
+	public int removeReply(int rid);
+	
+	
+	
 }
