@@ -61,7 +61,7 @@ prefix="fmt" %>
   </tfoot>
 </table>
 <script>
-  const url = 'replyList.do?nid=' + ${vo.noticeId };
+  const url = 'replyList.do?nid=' + ${vo.noticeId};
   const nid = ${vo.noticeId };
   const logid = "${id}";
   fetch(url)
