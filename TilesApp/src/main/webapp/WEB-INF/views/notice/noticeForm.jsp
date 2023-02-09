@@ -18,7 +18,8 @@
             <tr>
                 <th>작성자</th>
                 <td>
-                    <input type="text" name="writer">
+                    <input type="text" name="writer" value="${id}">
+                    <!-- <input type="text" name="writer" value="${vo.memberId}"> -->
                 </td>
             </tr>
             <tr>

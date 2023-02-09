@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.member.command.Login;
 import com.yedam.member.command.LoginForm;
+import com.yedam.member.command.ModifyMember;
+import com.yedam.member.command.Logout;
 import com.yedam.notice.command.AddReply;
 import com.yedam.notice.command.NoticeAdd;
 import com.yedam.notice.command.NoticeDetail;
@@ -57,8 +59,8 @@ public class FrontController extends HttpServlet {
 		// 회원관련
 		map.put("/loginForm.do", new LoginForm()); // 로그인 화면
 		map.put("/login.do", new Login()); // 로그인 처리
-		//map.put("/logout.do", new logout()); // 로그아웃
-		//map.put("/modifyMember.do", new ModifyMember()); //
+		map.put("/logout.do", new Logout()); // 로그아웃
+		map.put("/modifyMember.do", new ModifyMember()); //
 	}
 
 	// req -> 클라이언트가 보내는 요청정보들이 담겨있음 ex) form이면 form안에 input의 value(입력)값

@@ -47,7 +47,7 @@ prefix="fmt" %>
   <tfoot id="addReplyForm">
     <tr align="center">
       <td>제목: <input type="text" id="title" /></td>
-      <td>작성자: <input type="text" id="writer" /></td>
+      <td>작성자: <input type="text" id="writer" value="${ id }" readonly/></td>
       <td></td>
       <td></td>
     </tr>
@@ -63,7 +63,7 @@ prefix="fmt" %>
 <script>
   const url = 'replyList.do?nid=' + ${vo.noticeId };
   const nid = ${vo.noticeId };
-  const logid = ${logid};
+  const logid = "${id}";
   fetch(url)
   .then(resolve => resolve.json())
   .then(result => {
@@ -108,8 +108,7 @@ prefix="fmt" %>
       error: function(reject) {
       }
     })
-
-    $("#writer").val("");
+    
     $("#title").val("");
     $("#subject").val("");
 
@@ -120,7 +119,7 @@ prefix="fmt" %>
           // tr: 댓글내용
           // let tr1 = document.createElement('tr');
           // let td = document.createElement('td');
-          let tr1 = $('<tr />').attr('data-id', item.replyId).append(        // jQuery
+          let tr1 = $('<tr />').attr('data-id', item.replyId).append( // jQuery
               $("<td align='center' />").text(item.replyId),
               $("<td align='center' />").text(item.replyTitle),
               $("<td align='center' />").text(item.replyWriter),
