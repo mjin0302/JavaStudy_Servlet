@@ -36,11 +36,15 @@ public class Login implements Command {
 		MemberVO rvo = service.login(member);
 		if(rvo != null) {
 			HttpSession session = req.getSession();
-			session.setAttribute("id", rvo.getMemberId());
-			session.setAttribute("name", rvo.getMemberName());
+			session.setAttribute("id", rvo.getMemberId()); // 아이디
+			session.setAttribute("name", rvo.getMemberName()); // 이름
+			session.setAttribute("Auth", rvo.getResponsibility()); // 권한
+			session.setAttribute("img", rvo.getImage()); // 이미지
 			
 			MemberVO member2 = service.getMember(id);
-			req.setAttribute("vo", member2);
+			// req.setAttribute("vo", member2); // req는 요청을 한번 받으면 그 요청은 사라짐
+			
+			session.setAttribute("vo", member2); //
 			
 			return "member/mypage.tiles";
 			

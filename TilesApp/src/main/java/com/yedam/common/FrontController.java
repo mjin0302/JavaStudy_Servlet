@@ -11,10 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.member.command.AddMember;
+import com.yedam.member.command.ImageUpload;
 import com.yedam.member.command.Login;
 import com.yedam.member.command.LoginForm;
 import com.yedam.member.command.ModifyMember;
+import com.yedam.member.command.MyPageForm;
+import com.yedam.member.command.RemoveMember;
 import com.yedam.member.command.Logout;
+import com.yedam.member.command.MemberList;
+import com.yedam.member.command.MemberManager;
 import com.yedam.notice.command.AddReply;
 import com.yedam.notice.command.NoticeAdd;
 import com.yedam.notice.command.NoticeDetail;
@@ -60,13 +66,23 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm()); // 로그인 화면
 		map.put("/login.do", new Login()); // 로그인 처리
 		map.put("/logout.do", new Logout()); // 로그아웃
-		map.put("/modifyMember.do", new ModifyMember()); //
+		map.put("/modifyMember.do", new ModifyMember()); // 회원정보 수정
+		map.put("/myPageForm.do", new MyPageForm()); // 회원정보 수정 페이지
+		map.put("/imageUpload.do", new ImageUpload()); // 이미지 변경 페이지
+		
+		// 관리자 회원관리
+		map.put("/memberManageForm.do", new MemberManager()); //회원 정보페이지
+		map.put("/memberList.do", new MemberList()); //회원 목록
+		map.put("/addMember.do", new AddMember()); // 회원 등록
+		//map.put("/modi", null)
+		map.put("/removeMember.do", new RemoveMember()); // 회원 삭제
 	}
 
 	// req -> 클라이언트가 보내는 요청정보들이 담겨있음 ex) form이면 form안에 input의 value(입력)값
 	// resp -> 요청한 정보들의 결과 값이 담겨있음
 
 	@Override
+	// 받은 예외를 톰캣이 웹브라우저에 출력
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(charset);
 
@@ -83,7 +99,7 @@ public class FrontController extends HttpServlet {
 		if (viewPage.endsWith(".tiles")) { // ex)NoticeDetail에 return값이 .tails면
 			RequestDispatcher rd = req.getRequestDispatcher(viewPage); // viewPage에 저장된 경로로 이동
 			rd.forward(req, resp);
-		} else if (viewPage.endsWith(".do")) {
+		} else if (viewPage.endsWith(".do")) {	// viewPage가 .do로 끝나면
 			resp.sendRedirect(viewPage);
 		} else if (viewPage.endsWith(".json")) {
 			resp.setContentType("text/json;charset=utf-8");

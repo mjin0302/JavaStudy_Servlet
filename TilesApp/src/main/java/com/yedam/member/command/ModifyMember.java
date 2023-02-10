@@ -20,7 +20,14 @@ public class ModifyMember implements Command {
 		String name = req.getParameter("mname");
 		String pass = req.getParameter("mpass");
 		String phone = req.getParameter("mphone");
-		String addr = req.getParameter("maddr");
+		String addr = "";
+		
+		
+		if(req.getParameter("maddr").equals("")) {
+			addr = "";
+		} else {
+			addr = req.getParameter("maddr");
+		}
 
 		MemberVO member = new MemberVO();
 		member.setMemberId(id);
@@ -28,20 +35,23 @@ public class ModifyMember implements Command {
 		member.setMemberPw(pass);
 		member.setMemberPhone(phone);
 		member.setMemberAddr(addr);
-
+		
+		System.out.println("addr" + addr);
+		
+		
 		MemberService service = new MemberServiceMybatis();
 
 		MemberVO mvo = service.getMember(id);
-
+		System.out.println("mvo" + mvo.getMemberAddr());
 		if (name.equals(mvo.getMemberName()) && pass.equals(mvo.getMemberPw()) && phone.equals(mvo.getMemberPhone())
 				&& addr.equals(mvo.getMemberAddr())) {
-			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+			System.out.println("수정된 값이 없습니다");
+			
 			return "member/mypage.tiles";
 		} else {
 			service.modifyMember(member);
 			return "noticeList.do";
 		}
-
 	}
 
 }

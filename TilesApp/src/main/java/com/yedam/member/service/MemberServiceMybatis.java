@@ -45,4 +45,10 @@ public class MemberServiceMybatis implements MemberService {
 		return mapper.updateMember(member);
 	}
 
+	@Override
+	public int removeMember(String mid) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(mid);
+	}
+
 }
