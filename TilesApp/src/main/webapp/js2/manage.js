@@ -103,6 +103,8 @@ $(document).ready( function() {
             $('<td/>').append($('<button onclick="updateMemberFnc(event)">수정</button>'))
          )
          console.log(nTr);
+         nTr = $("#template tr").clone(true);
+         nTr.find("input.name").val(name);
          // 새로운 tr로 기존 tr을 대신
          $(this).replaceWith(nTr);
       }) //end of dblclick
