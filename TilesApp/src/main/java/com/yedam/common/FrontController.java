@@ -16,6 +16,7 @@ import com.yedam.member.command.ImageUpload;
 import com.yedam.member.command.Login;
 import com.yedam.member.command.LoginForm;
 import com.yedam.member.command.ModifyMember;
+import com.yedam.member.command.ModifyUpdate;
 import com.yedam.member.command.MyPageForm;
 import com.yedam.member.command.RemoveMember;
 import com.yedam.member.command.Logout;
@@ -74,7 +75,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberManageForm.do", new MemberManager()); //회원 정보페이지
 		map.put("/memberList.do", new MemberList()); //회원 목록
 		map.put("/addMember.do", new AddMember()); // 회원 등록
-		//map.put("/modi", null)
+		map.put("/modifyUpdate.do", new ModifyUpdate());
 		map.put("/removeMember.do", new RemoveMember()); // 회원 삭제
 	}
 
@@ -98,10 +99,15 @@ public class FrontController extends HttpServlet {
 
 		if (viewPage.endsWith(".tiles")) { // ex)NoticeDetail에 return값이 .tails면
 			RequestDispatcher rd = req.getRequestDispatcher(viewPage); // viewPage에 저장된 경로로 이동
+			
 			rd.forward(req, resp);
+			
 		} else if (viewPage.endsWith(".do")) {	// viewPage가 .do로 끝나면
+			
 			resp.sendRedirect(viewPage);
+			
 		} else if (viewPage.endsWith(".json")) {
+			
 			resp.setContentType("text/json;charset=utf-8");
 			resp.getWriter().print(viewPage.substring(0, viewPage.length() - 5));
 		}

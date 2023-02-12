@@ -54,17 +54,14 @@
             
         </tbody>
     </table>
-
-    <div id="template" style="display: none;">
-        <table>
-            <tr>
-                <td>admin</td>
-                <td><input type="text" class="name"></td>
-                <td><input type="text" class="phone"></td>
-                <td><input type="text" class="name"></td>
-                <td><input type="text" class="phone"></td>
-                <td><input type="text" class="name"></td>
-                <td><button mid="admin">삭제</button></td>
-            </tr>
-        </table>
-    </div>
+    <table id="template" style="display: none;">
+        <tr>
+            <td>admin</td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="phone"></td>
+            <td><input type="text" class="phone"></td>
+            <td><input type="text" class="phone"></td>
+            <td><input type="text" class="phone"></td>
+            <td><button mid="admin">삭제</button></td>
+        </tr>
+    </table>
