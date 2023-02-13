@@ -16,11 +16,7 @@
 
 	}
 </style>
-<style>
-	.center {
-		text-align: center;
-	}
-</style>
+
 <table class="table">
 	<thead>
 		<tr>

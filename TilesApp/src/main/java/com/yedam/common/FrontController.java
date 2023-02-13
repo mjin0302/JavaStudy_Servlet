@@ -11,24 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.member.command.AddMember;
-import com.yedam.member.command.ImageUpload;
-import com.yedam.member.command.Login;
-import com.yedam.member.command.LoginForm;
-import com.yedam.member.command.ModifyMember;
-import com.yedam.member.command.ModifyUpdate;
-import com.yedam.member.command.MyPageForm;
-import com.yedam.member.command.RemoveMember;
-import com.yedam.member.command.Logout;
-import com.yedam.member.command.MemberList;
-import com.yedam.member.command.MemberManager;
-import com.yedam.notice.command.AddReply;
-import com.yedam.notice.command.NoticeAdd;
-import com.yedam.notice.command.NoticeDetail;
-import com.yedam.notice.command.NoticeForm;
-import com.yedam.notice.command.NoticeList;
-import com.yedam.notice.command.RemoveReply;
-import com.yedam.notice.command.ReplyList;
+import com.yedam.member.command.*;
+import com.yedam.notice.command.*;
 
 public class FrontController extends HttpServlet {
 
@@ -54,9 +38,14 @@ public class FrontController extends HttpServlet {
 
 		// 공지사항
 		map.put("/noticeList.do", new NoticeList());
+		map.put("/noticeListWithTables.do", new NoticeListTable());
 		map.put("/noticeDetail.do", new NoticeDetail());
 		map.put("/noticeForm.do", new NoticeForm()); // 글 등록 화면
 		map.put("/noticeAdd.do", new NoticeAdd()); // 글 등록 처리
+		map.put("/noticeRemove.do", new NoticeRemove()); // 글 등록 처리
+		map.put("/noticeAddJson.do", new NoticeAddJson()); // 추가 버튼 누르면 글 추가
+		map.put("/noticeListJson.do", new NoticeListJson()); // list json화면
+		map.put("/noticeListAjax.do", new NoticeListAjax());
 
 		// 댓글
 		map.put("/replyList.do", new ReplyList()); // 댓글목록

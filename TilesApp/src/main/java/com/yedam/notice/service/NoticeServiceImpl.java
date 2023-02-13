@@ -47,7 +47,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 삭제
 	@Override
-	public int remNotice(int nid) {
+	public int removeNotice(int nid) {
 		// TODO Auto-generated method stub
 		return mapper.deleteNotice(nid);
 	}

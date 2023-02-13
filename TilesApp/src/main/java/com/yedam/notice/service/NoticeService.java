@@ -15,7 +15,7 @@ public interface NoticeService {
 
 	public int modNotice(NoticeVO notice); // 글 수정
 
-	public int remNotice(int nid); // 글 삭제
+	public int removeNotice(int nid); // 글 삭제
 
 	int addReply(ReplyVO reply); // 댓글 등록
 
