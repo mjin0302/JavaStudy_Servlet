@@ -21,11 +21,9 @@ public class ProductList implements Command {
 		ProductService service = new ProductServiceMybatis();
 		List<ProductVO> list = service.productList();
 		
-		String json = "";
-		Gson gson = new GsonBuilder().create();
-		json = gson.toJson(list);
+		req.setAttribute("list", list);
 		
-		return json + ".json";
+		return "product/productList.tiles";
 		
 	}
 

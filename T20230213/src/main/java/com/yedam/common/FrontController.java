@@ -29,8 +29,8 @@ public class FrontController extends HttpServlet {
 		charset = config.getInitParameter("charset");
 
 		map.put("/main.do", new MainControl());
-		map.put("/productList.do", new ProductList());
-		map.put("/productDetail.do", new ProductDetail());
+		map.put("/productList.do", new ProductList()); // 목록 조회
+		map.put("/productDetail.do", new ProductDetail()); // 단건 조회
 
 	}
 
@@ -47,12 +47,12 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.exec(req, resp);
 		// notice/noticeList.tiles
 
-		if (viewPage.endsWith(".tiles")) {
+		if (viewPage.endsWith(".tiles")) { // 부분만 바뀔때,,?>
 			RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 			rd.forward(req, resp);
 
-		} else if (viewPage.endsWith(".do")) {
-			resp.sendRedirect(viewPage);
+		} else if (viewPage.endsWith(".do")) { //
+			resp.sendRedirect(viewPage); //첨부터 다 실행
 
 		} else if (viewPage.endsWith(".json")) {
 			resp.setContentType("text/json;charset=utf-8");

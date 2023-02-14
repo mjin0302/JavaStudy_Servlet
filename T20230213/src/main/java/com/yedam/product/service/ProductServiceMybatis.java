@@ -27,7 +27,7 @@ public class ProductServiceMybatis implements ProductService {
 		return mapper.getProduct(productCode);
 	}
 
-	// 이건 뭐야
+	// 1등 ~ 4등 목록..?
 	@Override
 	public List<ProductVO> relateList() {
 		// TODO Auto-generated method stub
